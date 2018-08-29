@@ -1,25 +1,28 @@
 package com.crud.tasks.domain;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Getter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Setter
-@Entity(name="tasks")
+@AllArgsConstructor
+@Entity(name = "tasks")
 public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String title;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String content;
 }
