@@ -5,24 +5,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-
-import java.util.List;
-
-@Setter
-@Getter
 @AllArgsConstructor
+@Getter
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloBoardDto {
+public class Trello {
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("board")
+    private int board;
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("card")
+    private int card;
 
-    @JsonProperty("lists")
-    private List<TrelloListDto> lists;
 }
