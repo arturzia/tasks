@@ -44,12 +44,4 @@ public class TrelloController {
 
             return trelloClient.createNewCard(trelloCardDto);
         }
-
-       /* trelloBoards.stream()
-                .filter(t -> t.getName() != null)
-                .filter(t -> t.getId() != null)
-                .filter(t -> t.getName().contains("Kodilla"))
-                .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
-
-    }*/
     }
