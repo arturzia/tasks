@@ -43,11 +43,7 @@ public class SimpleEmailService {
     }
 
         private static boolean validateCc(String cc){
-            if((cc!= null) && (!cc.equals(""))){
-                return true;
-            } else {
-                return false;
-            }
+            if((cc!= null) && (!cc.equals(""))){ return true; } else { return false; }
 
         }
 }
