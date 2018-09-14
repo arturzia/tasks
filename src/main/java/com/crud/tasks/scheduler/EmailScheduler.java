@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmailScheduler {
     private static final String SUBJECT = "Tasks: Once a day email";
+    private static final String SINGLE_TASK = " task";
 
     @Autowired
     private SimpleEmailService simpleEmailService;
@@ -22,11 +23,9 @@ public class EmailScheduler {
     private AdminConfig adminConfig;
 
     @Scheduled(cron = "0 0 10 * * *")
-    //@Scheduled(fixedDelay = 10000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
-        String task;
-        if(size == 1) { task = " task";} else { task = " tasks";}
+        String task = size == 1 ?  SINGLE_TASK: " tasks";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
