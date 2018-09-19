@@ -83,15 +83,17 @@ public class TaskControllerTest {
     @Test
     public void shouldDeleteTask() throws Exception {
         //Given
+        Long taskId = 1L;
 
-        //When & Then
+        //When
         mockMvc.perform(delete("/v1/task/deleteTask")
-                .param("taskId", "1")
+                .param("taskId", taskId.toString())
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding("UTF-8"))
                 .andExpect(status().isOk());
 
-
+        //Then
+        verify(service, times(1)).deleteTask(taskId);
     }
 
     @Test
