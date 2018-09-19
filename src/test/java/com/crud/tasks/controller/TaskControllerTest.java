@@ -23,6 +23,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -81,12 +82,16 @@ public class TaskControllerTest {
 
     @Test
     public void shouldDeleteTask() throws Exception {
-        Task task = new Task(1L, "Test_title1", "Test_content1");
-        long tId = 1L;
+        //Given
 
-        service.deleteTask(tId);
+        //When & Then
+        mockMvc.perform(delete("/v1/task/deleteTask")
+                .param("taskId", "1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8"))
+                .andExpect(status().isOk());
 
-        verify(service, times(1)).deleteTask(tId);
+
     }
 
     @Test
