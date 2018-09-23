@@ -50,5 +50,8 @@ dependencies {
 	//Mail
 	compile('org.springframework.boot:spring-boot-starter-mail:2.0.4.RELEASE')
 
+	//actuator
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+
 }
 
